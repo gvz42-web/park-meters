@@ -1,4 +1,4 @@
-export interface MeterInput {
+export interface IMeterInput {
   address: string;
   isEnabled: boolean;
 }

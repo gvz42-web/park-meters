@@ -5,12 +5,13 @@ import * as path from "path";
 
 const db = path.join(__dirname, 'db.json')
 
-export async function create(meter: IMeter) {
+export async function create(meter: { address: string, isEnabled: boolean }) {
   const json:any = await fs.readFile(db)
   const data = JSON.parse(json)
 
-  const newMeter = {
+  const newMeter: IMeter = {
     ...meter,
+    usages: 0,
     id: data.length + 1
   }
   data.push(newMeter)

@@ -1,0 +1,15 @@
+<p-dialog header="Create a parking meter" [visible]="isVisible" (visibleChange)="changeVisibility($event)" [modal]="true" [style]="{minWidth: '500px'}">
+  <form [formGroup]="meterForm" class="flex flex-column pr-4 pl-4 gap-4">
+    <div class="flex flex-column gap-2">
+      <label for="address">Address</label>
+      <input id="address" pInputText formControlName="address">
+    </div>
+
+    <div class="flex align-items-center gap-3">
+      <p-inputSwitch formControlName="isEnabled"/> <span>Enabled</span>
+    </div>
+
+    <p-button label="Create" class="align-self-end" icon="pi pi-plus" (click)="create()"/>
+  </form>
+
+</p-dialog>

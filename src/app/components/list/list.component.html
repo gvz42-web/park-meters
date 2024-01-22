@@ -1,0 +1,5 @@
+<h1 class="mb-8">Park Meters</h1>
+
+<div class="list">
+  <app-meter-card *ngFor="let meter of meters | sortMeters:'address'" [meter]="meter"/>
+</div>

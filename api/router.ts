@@ -19,7 +19,9 @@ router.put('/meters/:id/status', async (req, res) => {
   res.send(await status(Number(req.params.id), req.body.status))
 })
 
-router.put('/meters/:id/use', async (req, res) => {
+
+// Need to be changed
+router.get('/meters/:id/use', async (req, res) => {
   res.send(await use(Number(req.params.id)))
 })
 

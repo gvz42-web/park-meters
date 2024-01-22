@@ -1,5 +1,5 @@
 export interface IMeter {
-  id?: number;
+  id: number;
   address: string;
   isEnabled: boolean;
   usages?: number;

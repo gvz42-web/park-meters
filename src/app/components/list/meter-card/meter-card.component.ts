@@ -3,6 +3,7 @@ import {CardModule} from "primeng/card";
 import {IMeter} from "../../../meter";
 import {TagModule} from "primeng/tag";
 import {NgIf} from "@angular/common";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-meter-card',
@@ -17,4 +18,11 @@ import {NgIf} from "@angular/common";
 })
 export class MeterCardComponent {
   @Input({ required: true }) meter!: IMeter
+
+  constructor(private router: Router) {
+  }
+
+  openMeter() {
+    this.router.navigate(['meters', this.meter.id])
+  }
 }

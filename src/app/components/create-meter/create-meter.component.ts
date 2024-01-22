@@ -31,9 +31,6 @@ export class CreateMeterComponent {
 
   @Output() newMeter = new EventEmitter<IMeterInput>()
 
-  constructor(private api: ApiService) {
-  }
-
   create() {
     this.newMeter.emit({
       address: this.meterForm.controls.address.value,

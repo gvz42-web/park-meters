@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import {ApiService} from "../../api.service";
-import {IMeter} from "../../meter";
 import {MeterCardComponent} from "./meter-card/meter-card.component";
 import {NgForOf} from "@angular/common";
 import {SortMetersPipe} from "../../sort-meters.pipe";
 import {CreateMeterComponent} from "../create-meter/create-meter.component";
 import {IMeterInput} from "../../meter-input";
 import {ButtonModule} from "primeng/button";
+import {IMeterShort} from "../../meter-short";
 
 @Component({
   selector: 'app-list',
@@ -22,7 +22,7 @@ import {ButtonModule} from "primeng/button";
   styleUrl: './list.component.sass'
 })
 export class ListComponent {
-  meters: IMeter[] = []
+  meters: IMeterShort[] = []
   isCreateMeterOpen = false
 
   constructor(private api: ApiService) {

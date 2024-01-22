@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {IMeter} from "./meter";
 import {IMeterInput} from "./meter-input";
+import {IMeterShort} from "./meter-short";
 
 const url = (resource: string[]) => {
   return 'http://localhost:3000/' + resource.join('/')
@@ -15,7 +16,7 @@ export class ApiService {
   }
 
   list() {
-    return this.http.get<IMeter[]>(url(['meters']))
+    return this.http.get<IMeterShort[]>(url(['meters']))
   }
 
   details(id: string) {
@@ -23,7 +24,7 @@ export class ApiService {
   }
 
   create(meter: IMeterInput) {
-    return this.http.post<IMeter>(url(['meters', 'create']), meter)
+    return this.http.post<IMeterShort>(url(['meters', 'create']), meter)
   }
 
   // Need to be changed

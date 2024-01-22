@@ -1,11 +1,11 @@
 import fs from 'fs/promises'
-import {IMeter} from "./interfaces";
+import {IMeter, IMeterInput, IMeterShort} from "./interfaces";
 import * as path from "path";
 
 
 const db = path.join(__dirname, 'db.json')
 
-export async function create(meter: { address: string, isEnabled: boolean }) {
+export async function create(meter: IMeterInput) {
   const json:any = await fs.readFile(db)
   const data = JSON.parse(json)
 
@@ -17,16 +17,18 @@ export async function create(meter: { address: string, isEnabled: boolean }) {
   data.push(newMeter)
 
   await fs.writeFile(db, JSON.stringify(data))
-  return newMeter
+  return {
+    id: newMeter.id,
+    address: newMeter.address
+  }
 }
 
 export async function getAll() {
   const json: any = await fs.readFile(db)
   const data = JSON.parse(json)
-  return data.map((item: IMeter) => ({
+  return data.map((item: IMeter): IMeterShort => ({
     id: item.id,
-    address: item.address,
-    isEnabled: item.isEnabled
+    address: item.address
   }))
 }
 

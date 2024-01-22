@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {IMeter} from "./meter";
+import {IMeterShort} from "./meter-short";
 
 @Pipe({
   name: 'sortMeters',
@@ -7,7 +7,7 @@ import {IMeter} from "./meter";
 })
 export class SortMetersPipe implements PipeTransform {
 
-  transform(meters: IMeter[], by: 'address'): IMeter[] {
+  transform(meters: IMeterShort[], by: 'address'): IMeterShort[] {
     if (by === 'address') {
       return meters.sort((a, b) => a.address.localeCompare(b.address))
     }
